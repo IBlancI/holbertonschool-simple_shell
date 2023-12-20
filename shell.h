@@ -3,18 +3,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
-#include <dirent.h>
-#define BUFSIZE 1024
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
 
-/* prompt_customized  */
-int prompt_customized(void);
+extern char **environ;
 
-char *read_line(void);
+void printPrompt(void);
 
-void listFilesInDirectory(const char *path);
+void token_input(char *input);
 
-void listFiles(const char *path);
+char *_getpath(char *cmd);
+
+void executable(char **argv, char *input);
+
 
 #endif
