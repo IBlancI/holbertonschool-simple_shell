@@ -23,15 +23,13 @@ char *_getpath(char *command)
 	{
 		/* Dupliquer la variable d'environnement pour éviter la modification */
 		cache = strdup(environ[i]);
-		
 		/*Extraire le premier token jusqu au '=' */
-                token = strtok(cache, "=");                             
+		token = strtok(cache, "=");
 		/*Si le token correspond à "PATH" */
 		if (strcmp(token, "PATH") == 0)
 		{
 			/* Extraire la partie après le '=' */
 			token = strtok(NULL, "=");
-			
 			/*Diviser le chemin en morceaux en utilisant ':' comme délimiteur */
 			token = strtok(token, ":");
 			while (token)
@@ -74,5 +72,5 @@ char *_getpath(char *command)
 		free(command);
 
 		/* Aucun chemin trouvé, renvoyer NULL */
-		return (NULL);                                                                                                                                                         
+		return (NULL);
 }
